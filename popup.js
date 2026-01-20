@@ -89,8 +89,21 @@ function handleSearch() {
 
 function renderResults() {
     resultsContainer.innerHTML = '';
+    let lastDate = null;
 
     searchResults.forEach((tab, index) => {
+        // Add date separator if in 'recent' sort, the date has changed, and not searching
+        if (currentSort === 'recent' && !searchInput.value.trim()) {
+            const dateLabel = getRelativeDate(tab.lastAccessed);
+            if (dateLabel !== lastDate) {
+                const sep = document.createElement('div');
+                sep.className = 'date-separator';
+                sep.textContent = dateLabel;
+                resultsContainer.appendChild(sep);
+                lastDate = dateLabel;
+            }
+        }
+
         const div = document.createElement('div');
         div.className = `tab-item ${index === selectedIndex ? 'selected' : ''}`;
 
@@ -153,6 +166,27 @@ function escapeHtml(text) {
     const div = document.createElement('div');
     div.textContent = text;
     return div.innerHTML;
+}
+
+function getRelativeDate(timestamp) {
+    if (!timestamp) return 'A long time ago';
+    const date = new Date(timestamp);
+    const today = new Date();
+    const yesterday = new Date();
+    yesterday.setDate(today.getDate() - 1);
+
+    if (date.toDateString() === today.toDateString()) {
+        return 'Today';
+    } else if (date.toDateString() === yesterday.toDateString()) {
+        return 'Yesterday';
+    } else {
+        // Check if it's within the last 7 days for better readability
+        const diffDays = Math.floor((today - date) / (1000 * 60 * 60 * 24));
+        if (diffDays < 7) {
+            return date.toLocaleDateString(undefined, { weekday: 'long' });
+        }
+        return date.toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' });
+    }
 }
 
 init();

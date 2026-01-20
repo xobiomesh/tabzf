@@ -137,6 +137,26 @@ body {
   border-radius: 10px;
 }
 
+.date-separator {
+  padding: 12px 14px 6px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.date-separator::after {
+  content: '';
+  flex-grow: 1;
+  height: 1px;
+  background: var(--border-color);
+  opacity: 0.5;
+}
+
 .tab-item {
   display: flex;
   align-items: center;
