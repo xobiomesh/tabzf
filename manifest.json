@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "TabZF - Fuzzy Tab Finder",
+  "version": "1.0",
+  "description": "Fuzzy find and focus tabs with a beautiful interface.",
+  "permissions": [
+    "tabs",
+    "storage"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "128": "icon128.png"
+    }
+  },
+  "icons": {
+    "128": "icon128.png"
+  }
+}

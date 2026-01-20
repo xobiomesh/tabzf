@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TabZF</title>
+    <link rel="stylesheet" href="popup.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="search-wrapper">
+            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" id="searchInput" placeholder="Search tabs..." autofocus autocomplete="off">
+            <div class="shortcut-hint">⌘K</div>
+        </div>
+        <div class="sort-controls">
+            <button id="sortRecent" class="sort-btn active">Recently Used</button>
+            <button id="sortOrder" class="sort-btn">Opening Order</button>
+            <button id="sortAlpha" class="sort-btn">A-Z</button>
+        </div>
+        <div id="results" class="results-container">
+            <!-- Results will be injected here -->
+        </div>
+        <div class="footer">
+            <div class="navigation-hints">
+                <span><kbd>↑↓</kbd> Navigate</span>
+                <span><kbd>↵</kbd> Switch</span>
+            </div>
+            <div id="tabCount" class="tab-count">0 tabs</div>
+        </div>
+    </div>
+    <script src="fuse.basic.min.js"></script>
+    <script src="popup.js"></script>
+</body>
+
+</html>
