@@ -8,9 +8,10 @@
 
 - **Fuzzy Search**: Quickly find the tab you're looking for by typing any part of its title or URL. Powered by [Fuse.js](https://www.fusejs.io/).
 - **Sorting Options**:
-  - **Recent**: Sort tabs by last accessed time.
+  - **Recent**: Sort tabs by last accessed time, featuring **chronological separators** (Today, Yesterday, etc.) for better organization.
   - **Order**: Sort tabs by their position in the window.
   - **Alphabetical**: Sort tabs by title.
+- **Calendar Filter**: A new calendar view that visualizes tab density per day. Select one or multiple days to filter your results to specific dates.
 - **Keyboard Friendly**:
   - `ArrowUp` / `ArrowDown` to navigate through results.
   - `Enter` to focus the selected tab.
